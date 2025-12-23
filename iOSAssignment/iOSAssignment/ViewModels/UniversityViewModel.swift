@@ -33,29 +33,3 @@ class UniversityViewModel: ObservableObject {
         }
     }
 }
-
-//class UniversityViewModel: ObservableObject {
-//    
-//    @Published var universities: [University] = []
-//    @Published var isLoading = false
-//    
-//    private let service: UniversityServiceProtocol
-//    
-//    init(service: UniversityServiceProtocol) {
-//        self.service = service
-//    }
-//    
-//    func loadUniversities() async {
-//        isLoading = true
-//        defer {
-//            isLoading = false
-//        }
-//        do {
-//            universities = try await service.fetchUniversities()
-//        } catch {
-//            // Add alert for retry some thing went wrong message 
-//            print("API Error:", error)
-//        }
-//    }
-//}
-
