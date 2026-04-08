@@ -26,7 +26,7 @@ class UniversityViewModel: ObservableObject {
         defer { isLoading = false }
 
         do {
-            universities = try await service.fetchUniversities()
+            universities = try await service.fetchUniversities(APIEndpoints.universitiesByCountry)
         } catch {
             errorMessage = "Something went wrong. Please try again."
             showErrorAlert = true

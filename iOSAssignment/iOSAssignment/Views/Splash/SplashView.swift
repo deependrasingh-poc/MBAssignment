@@ -4,7 +4,7 @@
 //
 //  Created by test on 23/12/25.
 //
-import SwiftUICore
+import SwiftUI
 
 struct SplashView: View {
     var body: some View {

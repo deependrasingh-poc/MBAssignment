@@ -7,21 +7,27 @@
 import Foundation
 
 final class MockUniversityService: UniversityServiceProtocol {
-
-    func fetchUniversities() async throws -> [University] {
-        [
-            University(
-                name: "IIT Delhi",
-                country: "India",
-                stateProvince: "Delhi",
-                webPages: ["https://www.iitd.ac.in"]
-            ),
-            University(
-                name: "IISc Bangalore",
-                country: "India",
-                stateProvince: "Karnataka",
-                webPages: ["https://www.iisc.ac.in"]
-            )
-        ]
+    
+    var shouldThrowError = false
+    var mockData: [University] = [
+        University(
+            name: "IIT Delhi",
+            country: "India",
+            stateProvince: "Delhi",
+            webPages: ["https://www.iitd.ac.in"]
+        ),
+        University(
+            name: "IISc Bangalore",
+            country: "India",
+            stateProvince: "Karnataka",
+            webPages: ["https://www.iisc.ac.in"]
+        )
+    ]
+    
+    func fetchUniversities(_ serviceUrl: String) async throws -> [University] {
+        if shouldThrowError {
+            throw URLError(.badServerResponse)
+        }
+        return mockData
     }
 }

@@ -8,13 +8,13 @@
 import Foundation
 
 protocol UniversityServiceProtocol {
-    func fetchUniversities() async throws -> [University]
+    func fetchUniversities(_ serviceUrl: String) async throws -> [University]
 }
 
 class UniversityService: UniversityServiceProtocol {
     
-    func fetchUniversities() async throws -> [University] {
-        guard let url = URL(string: APIEndpoints.universitiesByCountry) else {
+    func fetchUniversities(_ serviceUrl: String) async throws -> [University] {
+        guard let url = URL(string: serviceUrl) else {
             throw UniversityServiceError.badURL
         }
         

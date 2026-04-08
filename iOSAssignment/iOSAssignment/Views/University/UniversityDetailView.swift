@@ -5,7 +5,6 @@
 //  Created by test on 22/12/25.
 //
 
-import SwiftUICore
 import SwiftUI
 
 struct UniversityDetailView: View {
