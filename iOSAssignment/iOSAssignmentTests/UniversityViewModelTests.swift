@@ -2,7 +2,7 @@
 //  UniversityViewModelTests.swift
 //  iOSAssignment
 //
-//  Created by Deependra Singh on 08/04/26.
+//  Created by test on 08/04/26.
 //
 import XCTest
 @testable import iOSAssignment
