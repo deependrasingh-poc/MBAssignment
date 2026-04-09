@@ -8,10 +8,7 @@
 import Foundation
 
 struct University: Identifiable, Decodable, Hashable {
-    // Stable, deterministic ID
-        var id: String {
-            name + (stateProvince ?? "") + country
-        }
+    let id = UUID()
     let name: String
     let country: String
     let stateProvince: String?

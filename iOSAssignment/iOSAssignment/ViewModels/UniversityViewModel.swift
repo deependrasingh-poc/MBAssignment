@@ -33,3 +33,19 @@ class UniversityViewModel: ObservableObject {
         }
     }
 }
+
+extension UniversityViewModel: ListViewModel {
+    var items: [University] {
+        get { universities }
+        set { universities = newValue }
+    }
+
+    var showError: Bool {
+        get { showErrorAlert }
+        set { showErrorAlert = newValue }
+    }
+
+    func loadItems() async {
+        await loadUniversities()
+    }
+}

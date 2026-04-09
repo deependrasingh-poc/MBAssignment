@@ -14,7 +14,18 @@ struct UniversityDetailView: View {
     var body: some View {
         content
             .padding()
-            .navigationTitle("Details")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarRole(.navigationStack)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Details")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                }
+            }
+            .toolbarBackground(Color.blue, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarColorScheme(.light, for: .navigationBar)
     }
 
     // MARK: - Main Content
