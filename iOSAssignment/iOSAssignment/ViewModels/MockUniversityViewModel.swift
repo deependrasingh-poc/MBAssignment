@@ -1,5 +1,5 @@
 //
-//  Untitled.swift
+//  MockUniversityService.swift
 //  iOSAssignment
 //
 //  Created by test on 23/12/25.

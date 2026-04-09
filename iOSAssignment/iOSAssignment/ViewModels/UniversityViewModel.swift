@@ -1,5 +1,5 @@
 //
-//  Untitled.swift
+//  UniversityViewModel.swift
 //  iOSAssignment
 //
 //  Created by test on 22/12/25.
