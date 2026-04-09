@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UniversityDetailView: View {
-
+    @Environment(\.dismiss) var dismiss
     let university: University
 
     var body: some View {
@@ -17,12 +17,16 @@ struct UniversityDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarRole(.navigationStack)
             .toolbar {
+                backToolbarItem {
+                        dismiss()
+                    }
                 ToolbarItem(placement: .principal) {
                     Text("Details")
                         .font(.headline)
                         .foregroundColor(.white)
                 }
             }
+            .navigationBarBackButtonHidden(true)
             .toolbarBackground(Color.cyan, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.light, for: .navigationBar)
@@ -39,7 +43,28 @@ struct UniversityDetailView: View {
             Spacer()
         }
     }
-
+    
+    @ToolbarContentBuilder
+    func backToolbarItem(dismiss: @escaping () -> Void) -> some ToolbarContent {
+        if #available(iOS 26.0, *) {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: dismiss) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.white)
+                        .font(.system(size: 18, weight: .semibold))
+                }
+            }
+            .sharedBackgroundVisibility(.hidden)
+        } else {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: dismiss) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.white)
+                        .font(.system(size: 18, weight: .semibold))
+                }
+            }
+        }
+    }
     // MARK: - Sections
     @ViewBuilder
     private var titleSection: some View {
