@@ -17,9 +17,6 @@ struct UniversityListView: View {
             emptyContent: { emptyState },
             destination: { UniversityDetailView(university: $0) }
         )
-        .toolbarBackground(Color.indigo, for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .toolbarColorScheme(.light, for: .navigationBar)
     }
 
     private func universityRow(_ university: University) -> some View {

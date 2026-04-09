@@ -45,7 +45,7 @@ struct ListScreen<
                         .foregroundColor(.white)
                 }
             }
-            .toolbarBackground(Color.blue, for: .navigationBar)
+            .toolbarBackground(Color.cyan, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.light, for: .navigationBar)
             .overlay { loadingView }

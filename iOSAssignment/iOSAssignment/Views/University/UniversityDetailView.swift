@@ -23,7 +23,7 @@ struct UniversityDetailView: View {
                         .foregroundColor(.white)
                 }
             }
-            .toolbarBackground(Color.blue, for: .navigationBar)
+            .toolbarBackground(Color.cyan, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.light, for: .navigationBar)
     }
@@ -62,16 +62,19 @@ struct UniversityDetailView: View {
 
     @ViewBuilder
     private var websiteSection: some View {
-        ForEach(university.webPages, id: \.self) { page in
-            if let url = URL(string: page) {
-                HStack(spacing: 4) {
-                    Text("Website:")
-                        .font(.headline)
-
-                    Link(page, destination: url)
+        if !university.webPages.isEmpty {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Website:")
+                    .font(.headline)
+                ForEach(university.webPages, id: \.self) { page in
+                    if let url = URL(string: page) {
+                        Link(page, destination: url)
+                            .foregroundColor(.blue)
+                            .underline()
+                    }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }
